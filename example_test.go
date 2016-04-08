@@ -19,13 +19,14 @@ func ExampleLayout() {
 		c int
 	}
 
-	fmt.Printf("%s\n\n", memolayout.Layoutof(t1{}))
-	fmt.Printf("%s", memolayout.Layoutof(t2{}))
+	fmt.Printf("t1:\n%s\n", memolayout.Layoutof(t1{}))
+	fmt.Printf("t2:\n%s", memolayout.Layoutof(t2{}))
 	// Output:
+	// t1:
 	// x_______
 	// xxxxxxxx
 	// x_______
-	//
+	// t2:
 	// xx______
 	// xxxxxxxx
 }
