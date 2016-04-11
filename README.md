@@ -1,8 +1,8 @@
 Get Golang type's memory layout
 ============================================================
 
-The lib will get golang type's memory layout. The order of struct's fields will
-use a different memory layout.
+The lib will get golang type's memory layout. Different order of struct's fields
+will use a different memory layout.
 
 ## Usage
 

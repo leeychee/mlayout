@@ -6,7 +6,7 @@ import (
 	"github.com/leeychee/memolayout"
 )
 
-func ExampleLayout() {
+func ExampleLayoutof() {
 	type t1 struct {
 		a bool
 		b int
