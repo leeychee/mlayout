@@ -1,6 +1,8 @@
 Golang type's memory layout
 ============================================================
 
+[![Build Status](https://travis-ci.org/leeychee/mlayout.svg?branch=master)](https://travis-ci.org/leeychee/mlayout)
+
 Package mlayout try to describe golang type's memory layout, especially
 struct's. According to language's implements, different order of fields use
 different memory layout, so different memory use ratio sometimes.
