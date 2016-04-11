@@ -1,6 +1,7 @@
 Golang type's memory layout
 ============================================================
 
+[![GoDoc](https://godoc.org/github.com/leeychee/mlayout?status.png)](https://godoc.org/github.com/leeychee/mlayout)
 [![Build Status](https://travis-ci.org/leeychee/mlayout.svg?branch=master)](https://travis-ci.org/leeychee/mlayout)
 
 Package mlayout try to describe golang type's memory layout, especially
@@ -36,6 +37,10 @@ fmt.Printf("t2:\n%s", mlayout.Layoutof(t2{}))
 
 So we could try to imporve the struct's use ratio of memory with this, by adjusting
 struct's fields order.
+
+## Installation
+
+```go get -u github.com/leeychee/mlayout```
 
 ## Usage
 
