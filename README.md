@@ -1,9 +1,10 @@
-Get Golang type's memory layout
+Golang type's memory layout
 ============================================================
 
- Package memolayout try to describe a golang type's memo layout, especially struct's.
-According to language's implements, different order of fields use different
-memo layout, so different memo use ratio sometimes.
+Package mlayout try to describe golang type's memory layout, especially
+struct's. According to language's implements, different order of fields use
+different memory layout, so different memory use ratio sometimes.
+
 Here is a simple example, two structs with different fields order.
 
 ```go
@@ -19,8 +20,8 @@ type t2 struct {
 	c int
 }
 
-fmt.Printf("t1:\n%s\n", memolayout.Layoutof(t1{}))
-fmt.Printf("t2:\n%s", memolayout.Layoutof(t2{}))
+fmt.Printf("t1:\n%s\n", mlayout.Layoutof(t1{}))
+fmt.Printf("t2:\n%s", mlayout.Layoutof(t2{}))
 // Output:
 // t1:
 // x_______
@@ -31,9 +32,12 @@ fmt.Printf("t2:\n%s", memolayout.Layoutof(t2{}))
 // xxxxxxxx
 ```
 
+So we could try to imporve the struct's use ratio of memory with this, by adjusting
+struct's fields order.
+
 ## Usage
 
-For now, you can use the lib to get a type's use ratio of memo, and ascii image.
+For now, you can use the lib to get a type's use ratio of memory, and ascii image.
 
 ```go
 type t1 struct {
@@ -41,7 +45,11 @@ type t1 struct {
 	b int
 	c bool
 }
-l := memolayout.Layoutof(t1{})
+l := mlayout.Layoutof(t1{})
 fmt.Printf("t1's use ratio is %.2f", l.UseRatio())
 fmt.Printf("t1's acsii image is: \n%s\n", l)
 ```
+
+## TODO
+
+Maybe, we could build a cmd tool to analysis structs, and give some advices.

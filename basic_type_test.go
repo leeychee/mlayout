@@ -1,4 +1,4 @@
-package memolayout
+package mlayout
 
 import (
 	"fmt"

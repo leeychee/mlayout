@@ -1,6 +1,6 @@
-// Package memolayout try to describe a golang type's memo layout, especially struct's.
+// Package mlayout try to describe a golang type's memory layout, especially struct's.
 // According to language's implements, different order of fields use different
-// memo layout, so different memo use ratio sometimes.
+// memory layout, so different memory use ratio sometimes.
 // Here is a simple example, two structs with different fields order.
 //
 // The layout is on Linux amd64.
@@ -23,8 +23,8 @@
 //	// xx______
 //	// xxxxxxxx
 //
-// As you can see, t1 use 24 byte, t2 use 16 byte, save more than 30% memo.
-package memolayout
+// As you can see, t1 use 24 byte, t2 use 16 byte, save more than 30% memory.
+package mlayout
 
 import (
 	"bytes"
@@ -33,7 +33,7 @@ import (
 
 type Layout [][]bool
 
-// Layoutof will return a two-dimension array to describe the type's memo
+// Layoutof will return a two-dimension array to describe the type's memory
 // layout. It based on reflect, so it will get the real type of the interface.
 func Layoutof(i interface{}) Layout {
 	t := reflect.TypeOf(i)
@@ -73,7 +73,7 @@ func layoutof(g [][]bool, align, offset int, t reflect.Type) {
 	}
 }
 
-// Use will return how much byte used in the memo.
+// Use will return how much byte used in the memory.
 func (g Layout) Use() (used int) {
 	for _, l := range g {
 		for _, p := range l {
@@ -85,7 +85,7 @@ func (g Layout) Use() (used int) {
 	return
 }
 
-// UseRatio will return use ratio of the memo.
+// UseRatio will return use ratio of the memory.
 // Bigger is better.
 func (g Layout) UseRatio() (ratio float32) {
 	if len(g) < 1 {
@@ -94,7 +94,7 @@ func (g Layout) UseRatio() (ratio float32) {
 	return float32(g.Use()) / float32(len(g)*len(g[0]))
 }
 
-// String will return a ascii image of the memo layout.
+// String will return a ascii image of the memory layout.
 func (g Layout) String() string {
 	if len(g) < 1 {
 		return ""

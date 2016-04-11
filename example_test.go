@@ -1,9 +1,9 @@
-package memolayout_test
+package mlayout_test
 
 import (
 	"fmt"
 
-	"github.com/leeychee/memolayout"
+	"github.com/leeychee/mlayout"
 )
 
 func ExampleLayoutof() {
@@ -19,8 +19,8 @@ func ExampleLayoutof() {
 		c int
 	}
 
-	fmt.Printf("t1:\n%s\n", memolayout.Layoutof(t1{}))
-	fmt.Printf("t2:\n%s", memolayout.Layoutof(t2{}))
+	fmt.Printf("t1:\n%s\n", mlayout.Layoutof(t1{}))
+	fmt.Printf("t2:\n%s", mlayout.Layoutof(t2{}))
 	// Output:
 	// t1:
 	// x_______
